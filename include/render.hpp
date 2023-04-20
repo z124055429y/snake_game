@@ -2,7 +2,10 @@
 #define _RENDER_HPP_
 
 #include "size.hpp"
-#include "welcome.hpp"
+#include "game_welcome.hpp"
+#include "game_map.hpp"
+#include "game_wall.hpp"
+#include "game_status.hpp"
 
 class Render
 {
@@ -17,7 +20,11 @@ public:
     /**
      * 渲染Welcome Window
     */
-    void renderWelcomeWindow(Welcome *welcome);
+    void renderWelcomeWindow(GameWelcome *welcome);
+    /**
+     * 渲染Game Window
+    */
+    void renderGameWindow(GameMap *map, GameWall *wall, GameStatus *status);
 };
 
 

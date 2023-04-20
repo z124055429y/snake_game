@@ -10,7 +10,9 @@
 #define LEFT    3
 #define RIGHT   4
 
-class Snake
+#include "game_element.hpp"
+
+class Snake: public GameElement
 {
 private:
     int mDir;

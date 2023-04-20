@@ -9,9 +9,11 @@ private:
 public:
     Position(int x, int y);
     ~Position();
+    int getX();
+    int getY();
     void plusX();
-    void minusX();
     void plusY();
+    void minusX();
     void minusY();
     bool operator==(Position &other);
 };

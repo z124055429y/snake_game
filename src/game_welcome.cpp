@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <cstring>
 
-#include "welcome.hpp"
+#include "game_welcome.hpp"
 
-Welcome::Welcome()
+GameWelcome::GameWelcome()
 {
     // 初始化Welcome文案
     mTitle = "Welcome to Snake Game!!!";
@@ -29,19 +29,19 @@ Welcome::Welcome()
     pSize = new Size(rows, cols);
 }
 
-Welcome::~Welcome()
+GameWelcome::~GameWelcome()
 {
     delete pSize;
 }
 
-Size Welcome::getSize() {
+Size GameWelcome::getSize() {
     return *pSize;
 }
 
-const char* Welcome::getTitle() {
+const char* GameWelcome::getTitle() {
     return mTitle;
 }
 
-std::vector<const char*> Welcome::getSelections() {
+std::vector<const char*> GameWelcome::getSelections() {
     return mSelections;
 }

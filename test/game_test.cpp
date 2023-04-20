@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "snake.h"
-#include "welcome.hpp"
+#include "game_welcome.hpp"
 #include "render.hpp"
 
 // Demonstrate some basic assertions.
@@ -30,13 +30,13 @@ TEST(GameTest, SnakeEat) {
 }
 
 TEST(GameTest, WelcomeInit) {
-  Welcome *welcome = new Welcome();
+  GameWelcome *welcome = new GameWelcome();
   Size size = welcome->getSize();
   EXPECT_EQ(4, size.getRows());
 }
 
 TEST(GameTest, Debug) {
-  Welcome *welcome = new Welcome();
+  GameWelcome *welcome = new GameWelcome();
   Render *render = new Render(Size(200,200));
   render->renderWelcomeWindow(welcome);
 }

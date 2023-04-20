@@ -4,19 +4,17 @@
 #include <vector>
 #include <algorithm>
 
-#include "window.hpp"
+#include "size.hpp"
 
-#include <vector>
-
-class Welcome
+class GameWelcome
 {
 private:
     Size *pSize;
     const char* mTitle;
     std::vector<const char*> mSelections;
 public:
-    Welcome();
-    ~Welcome();
+    GameWelcome();
+    ~GameWelcome();
     Size getSize();
     const char* getTitle();
     std::vector<const char*> getSelections();

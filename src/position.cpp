@@ -8,6 +8,14 @@ Position::~Position()
 {
 }
 
+int Position::getX() {
+    return mX;
+}
+
+int Position::getY() {
+    return mY;
+}
+
 bool Position::operator==(Position &other) {
     return this->mX == other.mX && this->mY == other.mY;
 }
