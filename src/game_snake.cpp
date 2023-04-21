@@ -14,6 +14,13 @@ void GameSnake::setBody(std::deque<Position> body) {
 }
 
 void GameSnake::setDirect(int dir) {
+    if (mDir == UP && dir == DOWN
+        || mDir == DOWN && dir == UP
+        || mDir == LEFT && dir == RIGHT
+        || mDir == RIGHT && dir == LEFT
+    ) {
+        return ;
+    }
     mDir = dir;
 }
 

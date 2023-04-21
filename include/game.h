@@ -11,7 +11,6 @@
 class Game
 {
 private:
-    char *pMap;
     Render *pRender;
     Initializer *pInitializer;
     Controller *pController;

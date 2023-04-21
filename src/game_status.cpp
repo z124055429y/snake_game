@@ -21,3 +21,7 @@ int GameStatus::getScore() {
 void GameStatus::addScore(int plus) {
     mScore += plus;
 }
+
+void GameStatus::exit() {
+    mExit = true;
+}

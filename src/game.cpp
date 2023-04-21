@@ -50,13 +50,13 @@ void Game::startTimer()
     if (setitimer(ITIMER_REAL, &timer, NULL) != 0)
     {
         perror("setitimer");
-        exit(0);
+        ::exit(0);
     }
 
     if (signal(SIGALRM, alarm_action) != 0)
     {
         perror("signal");
-        exit(0);
+        ::exit(0);
     }
 }
 
@@ -67,7 +67,6 @@ void Game::stopTimer()
     timer.it_interval.tv_usec = 0;
     timer.it_value.tv_sec = 0;
     timer.it_value.tv_usec = 0;
-
 }
 
 void Game::render() {

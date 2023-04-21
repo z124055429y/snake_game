@@ -51,6 +51,8 @@ void Render::renderGameWindow(Initializer *initializer, GameMap *map, GameWall *
         food->setPos(pos);
         snake->move(true);
         status->addScore(1);
+    } else if (wall->contain(pos)) {
+        ::exit(0);
     } else {
         snake->move(false);
     }

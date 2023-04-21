@@ -2,10 +2,11 @@
 #define _GAME_FOOD_HPP_
 
 #include "position.hpp"
+#include "game_element.hpp"
 
 #define FOOD_CHAR '$'
 
-class GameFood
+class GameFood: public GameElement
 {
 private:
     Position* pPos;

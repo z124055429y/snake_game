@@ -8,12 +8,14 @@ class GameStatus
 private:
     Size* pSize;
     int mScore;
+    bool mExit;
 public:
     GameStatus();
     ~GameStatus();
     Size getSize();
     int getScore();
     void addScore(int plus);
+    void exit();
 };
 
 
