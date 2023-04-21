@@ -10,20 +10,23 @@
 #define LEFT    3
 #define RIGHT   4
 
+#define SNAKE_CHAR 'o'
+
 #include "game_element.hpp"
 
-class Snake: public GameElement
+class GameSnake: public GameElement
 {
 private:
     int mDir;
     std::deque<Position> mBody;
 public:
-    Snake();
-    ~Snake();
+    GameSnake();
+    ~GameSnake();
     void setDirect(int dir);
     bool contain(Position pos);
     void setBody(std::deque<Position> body);
-    void move();
+    void move(bool isEat);
+    Position next();
 };
 
 

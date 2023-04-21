@@ -22,7 +22,7 @@ private:
     /**
      * @return: 操作后，是否退出游戏，注意此处不能使用exit，否则导致终端模式为非标准模式
     */
-    bool handle(int cmd);
+    bool handle(int cmd, char op);
 public:
     Game();
     ~Game();

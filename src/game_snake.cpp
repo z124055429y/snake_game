@@ -1,23 +1,23 @@
-#include "snake.h"
+#include "game_snake.h"
 #include "position.hpp"
 
-Snake::Snake()
+GameSnake::GameSnake()
 {
 }
 
-Snake::~Snake()
+GameSnake::~GameSnake()
 {
 }
 
-void Snake::setBody(std::deque<Position> body) {
+void GameSnake::setBody(std::deque<Position> body) {
     mBody = body;
 }
 
-void Snake::setDirect(int dir) {
+void GameSnake::setDirect(int dir) {
     mDir = dir;
 }
 
-bool Snake::contain(Position pos) {
+bool GameSnake::contain(Position pos) {
     for (int i = 0; i < mBody.size(); i++)
     {
         if (mBody[i] == pos) {
@@ -27,8 +27,7 @@ bool Snake::contain(Position pos) {
     return false;   
 }
 
-void Snake::move() {
-    mBody.pop_front();
+Position GameSnake::next() {
     Position head = mBody.back();
     switch (mDir)
     {
@@ -45,5 +44,13 @@ void Snake::move() {
         head.plusX();
         break;
     }
+    return head;
+}
+
+void GameSnake::move(bool isEat) {
+    if (!isEat) {
+        mBody.pop_front();
+    }
+    Position head = next();
     mBody.push_back(head);
 }

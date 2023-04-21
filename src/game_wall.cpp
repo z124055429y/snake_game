@@ -30,7 +30,7 @@ void GameWall::shuffleMap(int barrierCount) {
     while (i < barrierCount) {
         int y = rand() % (mSize.getRows() - 2) + 1;
         int x = rand() % (mSize.getCols() - 2) + 1;
-        if (nearBarrier(x, y)) {
+        if (nearBarrier(Position(x, y), 1)) {
             continue;
         }
         pCharMap[y][x] = WALL_CHAR;
@@ -39,9 +39,11 @@ void GameWall::shuffleMap(int barrierCount) {
     
 }
 
-bool GameWall::nearBarrier(int x, int y) {
-    for (int i = x - 1; i <= x + 1; i++) {
-        for (int j = y - 1; j <= y + 1; j++) {
+bool GameWall::nearBarrier(Position pos, int padding) {
+    int x = pos.getX();
+    int y = pos.getY();
+    for (int i = x - padding; i <= x + padding; i++) {
+        for (int j = y - padding; j <= y + padding; j++) {
             if (pCharMap[y][x] == WALL_CHAR) {
                 return true;
             }

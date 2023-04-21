@@ -15,6 +15,7 @@ public:
     void plusY();
     void minusX();
     void minusY();
+    void random(int minX, int maxX, int minY, int maxY);
     bool operator==(Position &other);
 };
 

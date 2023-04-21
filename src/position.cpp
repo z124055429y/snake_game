@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "position.hpp"
 
 Position::Position(int x, int y): mX(x), mY(y)
@@ -27,9 +29,16 @@ void Position::plusX() {
 void Position::minusX() {
     mX--;
 }
+
 void Position::plusY() {
     mY++;
 }
+
 void Position::minusY() {
     mY--;
+}
+
+void Position::random(int minX, int maxX, int minY, int maxY) {
+    mY = rand() % (maxY - minY + 1) + minY;
+    mX = rand() % (maxX - minX + 1) + minX;
 }

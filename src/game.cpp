@@ -78,7 +78,7 @@ void Game::render() {
         pRender->renderWelcomeWindow(pInitializer->getWelcome());
         break;
     case WINDOW_GAME:
-        pRender->renderGameWindow(pInitializer->getMap(), pInitializer->getWall(), pInitializer->getStatus());
+        pRender->renderGameWindow(pInitializer, pInitializer->getMap(), pInitializer->getWall(), pInitializer->getSnake(), pInitializer->getFood(), pInitializer->getStatus());
         break;
     }
     
@@ -92,19 +92,37 @@ void Game::run()
     {
         ch = getch();
         int cmd = pController->generateCommand(mWindow.back(), ch);
-        bool exit = handle(cmd);
+        bool exit = handle(cmd, ch);
         if (exit) break;
     }
     refresh();
 }
 
-bool Game::handle(int cmd) {
+bool Game::handle(int cmd, char op) {
     switch (cmd)
     {
     case CMD_QUIT:
         return true;
     case CMD_START:
         mWindow.push_back(WINDOW_GAME);
+        break;
+    case CMD_MOVE:
+        GameSnake *snake = pInitializer->getSnake();
+        switch (op)
+        {
+        case 'w':
+            snake->setDirect(UP);
+            break;
+        case 's':
+            snake->setDirect(DOWN);
+            break;
+        case 'a':
+            snake->setDirect(LEFT);
+            break;
+        case 'd':
+            snake->setDirect(RIGHT);
+            break;
+        }
         break;
     }
     return false;

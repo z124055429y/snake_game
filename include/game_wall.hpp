@@ -11,12 +11,12 @@ class GameWall: public GameElement
 private:
     Size mSize;
     char **pCharMap;
-    bool nearBarrier(int x, int y);
 public:
     GameWall(int rows, int cols);
     ~GameWall();
     bool contain(Position pos);
     void shuffleMap(int barrierCount);
+    bool nearBarrier(Position pos, int padding);
 };
 
 #endif // _GAME_WALL_HPP_

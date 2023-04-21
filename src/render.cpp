@@ -39,11 +39,21 @@ Render::~Render()
     free(pCharMap);
 }
 
-void Render::renderGameWindow(GameMap *map, GameWall *wall, GameStatus *status) {
+void Render::renderGameWindow(Initializer *initializer, GameMap *map, GameWall *wall, GameSnake* snake, GameFood* food, GameStatus *status) {
     clear();
     const char *tmp = "Game Window";
 
     memcpy(pCharMap[0], tmp, strlen(tmp));
+
+    Position pos = snake->next();
+    if (food->contain(pos)) {
+        initializer->randomPosition(pos);
+        food->setPos(pos);
+        snake->move(true);
+        status->addScore(1);
+    } else {
+        snake->move(false);
+    }
 
     Size mapSize = map->getSize();
     Size statusSize = status->getSize();
@@ -58,6 +68,12 @@ void Render::renderGameWindow(GameMap *map, GameWall *wall, GameStatus *status) 
         {
             if (wall->contain(Position(j, i))) {
                 pCharMap[my + i][mx + j] = WALL_CHAR;
+            }
+            if (food->contain(Position(j, i))) {
+                pCharMap[my + i][mx + j] = FOOD_CHAR;
+            }
+            if (snake->contain(Position(j, i))) {
+                pCharMap[my + i][mx + j] = SNAKE_CHAR;
             }
         }
     }

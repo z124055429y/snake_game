@@ -2,10 +2,13 @@
 #define _RENDER_HPP_
 
 #include "size.hpp"
+#include "initializer.hpp"
 #include "game_welcome.hpp"
 #include "game_map.hpp"
 #include "game_wall.hpp"
 #include "game_status.hpp"
+#include "game_snake.h"
+#include "game_food.hpp"
 
 class Render
 {
@@ -24,7 +27,7 @@ public:
     /**
      * 渲染Game Window
     */
-    void renderGameWindow(GameMap *map, GameWall *wall, GameStatus *status);
+    void renderGameWindow(Initializer* initializer, GameMap *map, GameWall *wall, GameSnake *snake, GameFood *food, GameStatus *status);
 };
 
 

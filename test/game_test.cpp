@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "snake.h"
+#include "game_snake.h"
 #include "game_welcome.hpp"
 #include "render.hpp"
 
@@ -13,17 +13,17 @@ TEST(GameTest, BasicAssertions) {
 }
 
 TEST(GameTest, SnakeMove) {
-  Snake *snake = new Snake();
+  GameSnake *snake = new GameSnake();
   std::deque<Position> body = {Position(1,1), Position(1,2)};
   snake->setBody(body);
   snake->setDirect(RIGHT);
-  snake->move();
+  snake->move(false);
 
   EXPECT_EQ(true, snake->contain(Position(2,2)));
 }
 
 TEST(GameTest, SnakeEat) {
-  Snake *snake = new Snake();
+  GameSnake *snake = new GameSnake();
   std::deque<Position> body = {Position(1,1), Position(1,2)};
   snake->setBody(body);
   snake->setDirect(RIGHT);
